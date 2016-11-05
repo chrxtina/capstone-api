@@ -9,6 +9,11 @@ class ItemsController < ProtectedController
     render json: @items
   end
 
+  def category
+    @items = Item.where('category = ?', params[:category])
+    render json: @items
+  end
+
   def myitems
     @items = Item.where("user_id=#{current_user.id}")
     render json: @items
@@ -58,6 +63,6 @@ class ItemsController < ProtectedController
   end
 
   def item_params
-    params.require(:item).permit(:title, :location, :body, :address, :user_id)
+    params.require(:item).permit(:title, :category, :location, :body, :address, :user_id)
   end
 end
