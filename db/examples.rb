@@ -16,3 +16,24 @@
 #                password: 'abc123',
 #                password_confirmation: nil)
 # end
+
+Item.create([
+  { "category_id": 1,
+    "title": "Road Bike",
+    "body": "Black",
+    "location": "Downtown Boston",
+    "address": "125 Summer St. Boston, MA"
+  },
+  { "category_id": 2,
+    "title": "Harry Potter",
+    "body": "By JK Rowling",
+    "location": "Kendall Square",
+    "address": "125 Something. Cambridge, MA"
+  },
+  { "category_id": 3,
+    "title": "Dresses",
+    "body": "Perfect for the holidays!",
+    "location": "Union Square",
+    "address": "19 Something. Cambridge, MA"
+  }
+  ])
