@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :categories, except: [:new, :edit]
+  resources :categories, only: [:index, :show, :update]
   resources :items, except: [:new, :edit]
   get '/categories/:category' => 'items#category'
   get '/my-items' => 'items#myitems'
