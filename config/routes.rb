@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :messages, except: [:new, :edit]
+  resources :conversations, except: [:new, :edit]
   resources :categories, only: [:index, :show, :update]
   resources :items, except: [:new, :edit]
   get '/categories/:category' => 'items#category'
