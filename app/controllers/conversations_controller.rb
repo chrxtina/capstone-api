@@ -13,7 +13,9 @@ class ConversationsController < ProtectedController
   # GET /conversations/1
   # GET /conversations/1.json
   def show
-    render json: @conversation
+    if current_user.id == (@conversation.user1 || @conversation.user2)
+      render json: @conversation
+    end
   end
 
   # POST /conversations
@@ -30,15 +32,15 @@ class ConversationsController < ProtectedController
 
   # PATCH/PUT /conversations/1
   # PATCH/PUT /conversations/1.json
-  # def update
-  #   @conversation = Conversation.find(params[:id])
-  #
-  #   if @conversation.update(conversation_params)
-  #     head :no_content
-  #   else
-  #     render json: @conversation.errors, status: :unprocessable_entity
-  #   end
-  # end
+  def update
+    if current_user.id == (@conversation.user1 || @conversation.user2)
+      if @conversation.update(conversation_params)
+        head :no_content
+      else
+        render json: @conversation.errors, status: :unprocessable_entity
+      end
+    end
+  end
 
   # DELETE /conversations/1
   # DELETE /conversations/1.json
