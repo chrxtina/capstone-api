@@ -12,7 +12,7 @@ class MessagesController < ProtectedController
   def show
     @message = Message.find(params[:id])
     @conversation = @message.conversation
-    if current_user.id == (@conversation.user1 || @conversation.user2)
+    if (current_user.id == @conversation.user1) || (current_user.id == @conversation.user2)
       render json: @message
     end
   end
