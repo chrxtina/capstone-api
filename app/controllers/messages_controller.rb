@@ -44,12 +44,12 @@ class MessagesController < ProtectedController
 
   # DELETE /messages/1
   # DELETE /messages/1.json
-  def destroy
-    @message = current_user.messages.find(params[:id])
-    @message.destroy
-
-    head :no_content
-  end
+  # def destroy
+  #   @message = current_user.messages.find(params[:id])
+  #   @message.destroy
+  #
+  #   head :no_content
+  # end
 
   private
 
